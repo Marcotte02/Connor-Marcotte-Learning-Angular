@@ -1,1 +1,7 @@
-<p>guitars-list-item works!</p>
+<div>
+  <h2>{{ guitar.model }}</h2>
+  <p>Brand: {{ guitar.brand }}</p>
+  <p>Price: ${{ guitar.price }}</p>
+  <p *ngIf="guitar.description">{{ guitar.description }}</p>
+  <p>Status: {{ guitar.inStock ? 'In Stock' : 'Out of Stock' }}</p>
+</div>
