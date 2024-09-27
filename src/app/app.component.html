@@ -2,19 +2,8 @@
 
   <div>
     <h1>{{ title }}</h1>
-
     <!-- Displays guitars if in array -->
-    <div *ngIf="guitars.length > 0; else noGuitars">
-      <ul>
-        <li *ngFor="let guitar of guitars">
-          <div>
-            <h3>{{ guitar.brand }} {{guitar.model }}</h3>
-            <p>Price: ${{ guitar.price }}</p>
-            <p>Status: {{ guitar.inStock ? 'In Stock' : 'Out of Stock' }}</p>
-            <p *ngIf="guitar.description">Description: {{ guitar.description}}</p>
-          </div>
-        </li>
-      </ul>
+    <app-guitars-list></app-guitars-list>
     </div>
 
     <!-- Show when there is no guitars in array -->
