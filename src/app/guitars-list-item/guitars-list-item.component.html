@@ -1,5 +1,6 @@
 <div>
   <h2>{{ guitar.model }}</h2>
+  <img [src]="guitar.imageUrl" alt="{{ guitar.model }} image" />
   <p>Brand: {{ guitar.brand }}</p>
   <p>Price: ${{ guitar.price }}</p>
   <p *ngIf="guitar.description">{{ guitar.description }}</p>

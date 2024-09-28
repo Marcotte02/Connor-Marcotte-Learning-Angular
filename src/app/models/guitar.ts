@@ -5,4 +5,5 @@ export interface Guitar {
   price: number;
   inStock: boolean;
   description?: string;
+  imageUrl: string;
 }
