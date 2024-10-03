@@ -2,6 +2,8 @@
 
   <div>
     <h1>{{ title }}</h1>
+
+    <app-guitars-list-item *ngIf="sampleGuitar" [guitar]="sampleGuitar"></app-guitars-list-item>
     <!-- Displays guitars if in array -->
     <app-guitars-list></app-guitars-list>
 
