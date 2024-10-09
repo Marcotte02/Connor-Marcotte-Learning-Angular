@@ -1,16 +1,16 @@
 <html>
+  <body>
+    <nav>
+      <ul>
+        <li><a routerLink = '/guitars'>Home</a></li>
+        <li><a routerLink ='/modify-guitar'>Modify Guitar</a></li>
+      </ul>
+    </nav>
 
-  <div>
-    <h1>{{ title }}</h1>
+    <div>
+      <h1>{{ title }}</h1>
 
-    <app-guitars-list-item *ngIf="sampleGuitar" [guitar]="sampleGuitar"></app-guitars-list-item>
-    <!-- Displays guitars if in array -->
-    <app-guitars-list></app-guitars-list>
-
-    <!-- Show when there is no guitars in array -->
-    <ng-template #noGuitars>
-      <p>No guitars are currently available :(</p>
-    </ng-template>
-
-  </div>
+      <router-outlet></router-outlet>
+    </div>
+  </body>
 </html>

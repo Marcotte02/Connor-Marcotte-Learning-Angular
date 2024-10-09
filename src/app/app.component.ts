@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import { Guitar } from "./models/guitar";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {GuitarsListComponent} from "./guitars-list/guitars-list.component";
@@ -9,7 +9,7 @@ import {GuitarsListItemComponent} from "./guitars-list-item/guitars-list-item.co
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, NgForOf, GuitarsListComponent, GuitarsListItemComponent, AsyncPipe],
+  imports: [RouterOutlet, NgIf, NgForOf, GuitarsListComponent, GuitarsListItemComponent, AsyncPipe, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

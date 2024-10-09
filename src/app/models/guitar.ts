@@ -6,4 +6,5 @@ export interface Guitar {
   inStock: boolean;
   description?: string;
   imageUrl: string;
+  alt: string;
 }
