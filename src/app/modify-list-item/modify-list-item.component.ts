@@ -24,10 +24,10 @@ export class ModifyListItemComponent {
     private router: Router
   ) {
     this.guitarForm =this.fb.group({
-      model: ['', Validators.required],
-      brand: ['', Validators.required],
-      price: ['', Validators.required],
-      inStock: [false],
+      model: ['', Validators.required, Validators.maxLength(40)], // Keep length below 40 characters
+      brand: ['', Validators.required, Validators.pattern("^[^#?!]*$")], // No special characters allowed
+      price: ['', Validators.required, Validators.min(0)], // Must be greater then 0
+      inStock: [true],
       description: ['']
     });
   }
