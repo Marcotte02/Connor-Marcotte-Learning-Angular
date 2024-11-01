@@ -1,3 +1,5 @@
 <div *ngFor="let guitar of guitars">
   <app-guitars-list-item [guitar]="guitar"></app-guitars-list-item>
+  <button (click)="editGuitar(guitar.id)">Edit</button>
+  <button (click)="deleteGuitar(guitar.id)">Delete</button>
 </div>

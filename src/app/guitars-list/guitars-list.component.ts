@@ -4,6 +4,7 @@ import {GuitarsListItemComponent} from "../guitars-list-item/guitars-list-item.c
 import {NgForOf} from "@angular/common";
 import {GUITARS} from "../data/mock-content";
 import {GuitarService} from "../guitar.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-guitars-list',
@@ -18,7 +19,10 @@ import {GuitarService} from "../guitar.service";
 export class GuitarsListComponent implements OnInit{
   guitars: Guitar[] = GUITARS;
 
-  constructor(private guitarService: GuitarService) {}
+  constructor(
+    private guitarService: GuitarService,
+    private router: Router
+) {}
 
   ngOnInit(): void {
     this.getGuitars();
@@ -28,5 +32,15 @@ export class GuitarsListComponent implements OnInit{
     this.guitarService.getGuitars().subscribe((guitars) => {
       this.guitars = guitars;
     });
+  }
+
+  deleteGuitar(id: number): void {
+    this.guitarService.removeGuitar(id).subscribe(() => {
+      this.guitars = this.guitars.filter(guitar => guitar.id !== id);
+    });
+  }
+
+  editGuitar(id: number): void {
+    this.router.navigate(['/guitars', id, 'edit']);
   }
 }

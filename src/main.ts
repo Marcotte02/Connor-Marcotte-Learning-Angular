@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'guitars', component: GuitarsListComponent },
   { path: 'guitars/:id', component: GuitarsListItemComponent },
   { path: 'modify-guitar', component: ModifyListItemComponent },
+  { path: 'guitars/:id/edit', component: ModifyListItemComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

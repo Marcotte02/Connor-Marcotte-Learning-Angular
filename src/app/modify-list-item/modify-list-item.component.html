@@ -1,1 +1,49 @@
-<p>modify-list-item works!</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modify Guitars</title>
+</head>
+<body>
+  <form [formGroup]="guitarForm" (ngSubmit)="onSubmit()">
+
+    <!-- Model Field -->
+    <div>
+      <label for="model">Model</label>
+      <input id="model" formControlName="model" type="text" />
+    </div>
+
+    <!-- Brand Field -->
+    <div>
+      <label for="brand">Brand</label>
+      <input id="brand" formControlName="brand" type="text" />
+    </div>
+
+    <!-- Price Field -->
+    <div>
+      <label for="price">Price</label>
+      <input id="price" formControlName="price" type="number">
+    </div>
+
+    <!-- In Stock Field -->
+    <div>
+      <label>
+        <input type="checkbox" formControlName="inStock" />
+        In Stock
+      </label>
+    </div>
+
+    <!-- Description Field -->
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <button type="submit">Save</button>
+    <button type="button" (click)="onDelete()">Delete</button>
+    <button type="button" (click)="navigateToGuitarList()">Back to List</button>
+  </form>
+</body>
+</html>

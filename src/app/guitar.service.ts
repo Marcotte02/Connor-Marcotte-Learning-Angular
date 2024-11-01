@@ -45,4 +45,8 @@ export class GuitarService {
     }
     return of(undefined);
   }
+
+  generateNewId(): number {
+    return this.guitars.length > 0 ? Math.max(...this.guitars.map(guitar => guitar.id)) + 1 : 1;
+  }
 }
