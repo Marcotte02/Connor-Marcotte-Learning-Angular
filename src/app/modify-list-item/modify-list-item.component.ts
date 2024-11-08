@@ -33,34 +33,35 @@ export class ModifyListItemComponent {
   }
 
   ngOnInit(): void {
-    this.guitarId = Number(this.route.snapshot.paramMap.get('id'));
-    if (this.guitarId) {
-      this.guitarService.getGuitarById(this.guitarId).subscribe(guitar => {
-        if (guitar) {
-          this.guitarForm.patchValue(guitar);
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id) {
+      this.guitarService.getGuitarById(id).subscribe( {
+        next: guitar => {
+          if (guitar) {
+            this.guitarForm.patchValue(guitar);
+          }
         }
-      });
+      })
     }
   }
 
   onSubmit(): void {
-    const guitar: Guitar = this.guitarForm.value;
-
-    if (guitar.id) {
-      this.guitarService.updateGuitar(guitar);
-    } else {
-      const newId = this.guitarService.generateNewId();
-      guitar.id = newId;
-      this.guitarService.addGuitar(guitar);
+    if (this.guitarForm.valid) {
+      const guitar: Guitar = this.guitarForm.value;
+      if (guitar.id) {
+        this.guitarService.updateGuitar(guitar).subscribe(() => this.router.navigate(['/guitars']));
+      } else {
+        // @ts-ignore
+        guitar.id = this.guitarService.generateNewId();
+        this.guitarService.addGuitar(guitar).subscribe(() => this.router.navigate(['/guitars']));
+      }
     }
-    this.router.navigate(['/guitars']);
   }
 
   onDelete(): void {
-    const id = this.guitarForm.get('id')?.value;
+    const id = this.guitarForm.value.id;
     if (id) {
-      this.guitarService.removeGuitar(id);
-      this.router.navigate(['/guitars']);
+      this.guitarService.removeGuitar(id).subscribe(() => this.router.navigate(['/guitars']));
     }
   }
 

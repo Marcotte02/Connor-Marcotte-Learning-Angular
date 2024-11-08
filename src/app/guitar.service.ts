@@ -1,52 +1,44 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
+import {map, Observable, of} from "rxjs";
 import {Guitar} from "./models/guitar";
 import {GUITARS} from "./data/mock-content";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuitarService {
-  private guitars = GUITARS;
+  private apiUrl = '/api/guitars';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   getGuitars(): Observable<Guitar[]> {
-    return of(GUITARS);
+    return this.http.get<Guitar[]>(this.apiUrl);
   }
 
   // Get guitar from ID
-  getGuitarById(guitarId: number): Observable<Guitar | undefined>{
-    const guitar = this.guitars.find(guitar => guitar.id === guitarId);
-    return of(guitar);
+  getGuitarById(id: number): Observable<Guitar> {
+    return this.http.get<Guitar>(`${this.apiUrl}/${id}`);
   }
 
   // Add new guitar to array
-  addGuitar(newGuitar:Guitar): Observable<Guitar[]> {
-    this.guitars.push(newGuitar);
-    return of(this.guitars);
+  addGuitar(guitar:Guitar): Observable<Guitar> {
+    return this.http.post<Guitar>(this.apiUrl, guitar);
   }
 
   // Update an existing guitar
-  updateGuitar(updatedGuitar: Guitar): Observable<Guitar[]> {
-    const index = this.guitars.findIndex(guitar => guitar.id === updatedGuitar.id)
-    if (index !== -1) {
-      this.guitars[index] = updatedGuitar;
-    }
-    return of(this.guitars);
+  updateGuitar(guitar: Guitar): Observable<Guitar> {
+    return this.http.put<Guitar>(`${this.apiUrl}/${guitar.id}`, guitar);
   }
 
   // Remove guitar using ID
-  removeGuitar(id: number): Observable<Guitar | undefined> {
-    const index = this.guitars.findIndex(guitar => guitar.id === id);
-    if (index !== -1) {
-      const removedGuitar = this.guitars.splice(index, 1)[0];
-      return of(removedGuitar);
-    }
-    return of(undefined);
+  removeGuitar(id: number): Observable<Guitar> {
+    return this.http.delete<Guitar>(`${this.apiUrl}/${id}`);
   }
 
-  generateNewId(): number {
-    return this.guitars.length > 0 ? Math.max(...this.guitars.map(guitar => guitar.id)) + 1 : 1;
+  generateNewId(): Observable<number> {
+    return this.getGuitars().pipe(
+      map(guitars => guitars.length > 0 ? Math.max(...guitars.map(guitar => guitar.id)) + 1 : 1)
+    );
   }
 }

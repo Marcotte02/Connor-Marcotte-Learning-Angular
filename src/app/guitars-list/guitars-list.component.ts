@@ -17,7 +17,7 @@ import {Router} from "@angular/router";
   styleUrl: './guitars-list.component.css'
 })
 export class GuitarsListComponent implements OnInit{
-  guitars: Guitar[] = GUITARS;
+  guitars: Guitar[] = [];
 
   constructor(
     private guitarService: GuitarService,
@@ -25,13 +25,9 @@ export class GuitarsListComponent implements OnInit{
 ) {}
 
   ngOnInit(): void {
-    this.getGuitars();
-  }
-
-  getGuitars(): void {
-    this.guitarService.getGuitars().subscribe((guitars) => {
-      this.guitars = guitars;
-    });
+    this.guitarService.getGuitars().subscribe(data => {
+      this.guitars = data;
+    })
   }
 
   deleteGuitar(id: number): void {
