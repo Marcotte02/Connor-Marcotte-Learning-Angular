@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modify Guitars</title>
-</head>
-<body>
+
   <form [formGroup]="guitarForm" (ngSubmit)="onSubmit()">
 
     <!-- Model Field -->
@@ -44,6 +37,7 @@
     <button type="submit">Save</button>
     <button type="button" (click)="onDelete()">Delete</button>
     <button type="button" (click)="navigateToGuitarList()">Back to List</button>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
   </form>
-</body>
-</html>
+

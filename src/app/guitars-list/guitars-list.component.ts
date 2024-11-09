@@ -18,6 +18,7 @@ import {Router} from "@angular/router";
 })
 export class GuitarsListComponent implements OnInit{
   guitars: Guitar[] = [];
+  error: string | null = null;
 
   constructor(
     private guitarService: GuitarService,
@@ -25,14 +26,26 @@ export class GuitarsListComponent implements OnInit{
 ) {}
 
   ngOnInit(): void {
-    this.guitarService.getGuitars().subscribe(data => {
-      this.guitars = data;
-    })
+    this.guitarService.getGuitars().subscribe({
+      next: data => {
+        this.guitars = data;
+      },
+      error: (err) => {
+        this.error = 'Failed to load guitars.';
+        console.error(err);
+      }
+    });
   }
 
   deleteGuitar(id: number): void {
-    this.guitarService.removeGuitar(id).subscribe(() => {
-      this.guitars = this.guitars.filter(guitar => guitar.id !== id);
+    this.guitarService.removeGuitar(id).subscribe({
+      next: () => {
+        this.guitars = this.guitars.filter(guitar => guitar.id !== id);
+      },
+      error: (err) => {
+        this.error = 'Failed to delete guitar.';
+        console.error(err);
+      }
     });
   }
 

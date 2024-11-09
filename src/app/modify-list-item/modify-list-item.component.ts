@@ -16,6 +16,7 @@ import {Guitar} from "../models/guitar";
 export class ModifyListItemComponent {
   guitarForm: FormGroup;
   guitarId?: number;
+  error: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -40,8 +41,12 @@ export class ModifyListItemComponent {
           if (guitar) {
             this.guitarForm.patchValue(guitar);
           }
+        },
+        error: (err) => {
+          this.error = 'Failed to fetch guitar data';
+          console.error(err);
         }
-      })
+      });
     }
   }
 
@@ -49,11 +54,27 @@ export class ModifyListItemComponent {
     if (this.guitarForm.valid) {
       const guitar: Guitar = this.guitarForm.value;
       if (guitar.id) {
-        this.guitarService.updateGuitar(guitar).subscribe(() => this.router.navigate(['/guitars']));
+        this.guitarService.updateGuitar(guitar).subscribe({
+          next: () => {
+            this.router.navigate(['/guitars']);
+          },
+          error: (err) => {
+            this.error = 'Failed to update guitar';
+            console.error(err);
+          }
+        });
       } else {
         // @ts-ignore
         guitar.id = this.guitarService.generateNewId();
-        this.guitarService.addGuitar(guitar).subscribe(() => this.router.navigate(['/guitars']));
+        this.guitarService.addGuitar(guitar).subscribe({
+          next: () => {
+            this.router.navigate(['/guitars']);
+          },
+          error: (err) => {
+            this.error = 'Failed to add new guitar.';
+            console.error(err);
+          }
+        });
       }
     }
   }
@@ -61,11 +82,20 @@ export class ModifyListItemComponent {
   onDelete(): void {
     const id = this.guitarForm.value.id;
     if (id) {
-      this.guitarService.removeGuitar(id).subscribe(() => this.router.navigate(['/guitars']));
+      this.guitarService.removeGuitar(id).subscribe({
+        next: () => {
+          this.router.navigate(['/guitars']);
+        },
+        error: (err) => {
+          this.error = 'Failed to delete guitar.';
+          console.error(err);
+        }
+      });
     }
   }
 
   navigateToGuitarList(): void {
     this.router.navigate(['/guitars']);
   }
+
 }
