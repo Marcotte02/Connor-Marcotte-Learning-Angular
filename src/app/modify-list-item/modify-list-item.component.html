@@ -1,6 +1,12 @@
 
   <form [formGroup]="guitarForm" (ngSubmit)="onSubmit()">
 
+    <!-- ID Field -->
+    <div>
+      <label for="id">ID</label>
+      <input id="id" formControlName="id" type="number" />
+    </div>
+
     <!-- Model Field -->
     <div>
       <label for="model">Model</label>

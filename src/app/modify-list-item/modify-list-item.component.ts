@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {GuitarService} from "../guitar.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -13,7 +13,7 @@ import {Guitar} from "../models/guitar";
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
-export class ModifyListItemComponent {
+export class ModifyListItemComponent implements OnInit {
   guitarForm: FormGroup;
   guitarId?: number;
   error: string | null = null;
@@ -25,6 +25,7 @@ export class ModifyListItemComponent {
     private router: Router
   ) {
     this.guitarForm =this.fb.group({
+      id: ['', Validators.required],
       model: ['', Validators.required, Validators.maxLength(40)], // Keep length below 40 characters
       brand: ['', Validators.required, Validators.pattern("^[^#?!]*$")], // No special characters allowed
       price: ['', Validators.required, Validators.min(0)], // Must be greater then 0
