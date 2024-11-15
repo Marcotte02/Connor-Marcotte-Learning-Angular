@@ -7,4 +7,5 @@ export interface Guitar {
   description?: string;
   imageUrl: string;
   alt: string;
+  manufacturedDate: string;
 }
