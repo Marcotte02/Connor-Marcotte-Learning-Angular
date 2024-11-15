@@ -2,7 +2,7 @@
   <h2>{{ guitar.model }}</h2>
   <img [src]="guitar.imageUrl" alt="{{ guitar.alt }} image" />
   <p>Brand: {{ guitar.brand | uppercase }}</p>
-  <p>Price: {{ guitar.price | currency: 'CAD'}}</p>
+  <p>Price: {{ guitar.price | priceWithTax }}</p>
   <p>Manufactured Date: {{ guitar.manufacturedDate | date: 'longDate' }}</p>
   <p *ngIf="guitar.description">{{ guitar.description }}</p>
   <p>Status: {{ guitar.inStock ? 'In Stock' : 'Out of Stock' }}</p>
