@@ -5,6 +5,7 @@ import {NgForOf} from "@angular/common";
 import {GUITARS} from "../data/mock-content";
 import {GuitarService} from "../guitar.service";
 import {Router} from "@angular/router";
+import {HoverHighlightDirective} from "../hover-highlight.directive";
 
 @Component({
   selector: 'app-guitars-list',
@@ -12,6 +13,7 @@ import {Router} from "@angular/router";
   imports: [
     GuitarsListItemComponent,
     NgForOf,
+    HoverHighlightDirective,
   ],
   templateUrl: './guitars-list.component.html',
   styleUrl: './guitars-list.component.css'
