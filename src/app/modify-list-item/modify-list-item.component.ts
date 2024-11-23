@@ -3,12 +3,16 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {GuitarService} from "../guitar.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Guitar} from "../models/guitar";
+import {HighlightOnFocusDirective} from "../highlight-on-focus.directive";
+import {HoverHighlightDirective} from "../hover-highlight.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighlightOnFocusDirective,
+    HoverHighlightDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

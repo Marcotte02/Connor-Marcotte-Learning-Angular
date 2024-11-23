@@ -4,31 +4,31 @@
     <!-- ID Field -->
     <div>
       <label for="id">ID</label>
-      <input id="id" formControlName="id" type="number" />
+      <input id="id" formControlName="id" type="number" appHighlightOnFocus="blue" />
     </div>
 
     <!-- Model Field -->
     <div>
       <label for="model">Model</label>
-      <input id="model" formControlName="model" type="text" />
+      <input id="model" formControlName="model" type="text" appHighlightOnFocus="blue" />
     </div>
 
     <!-- Brand Field -->
     <div>
       <label for="brand">Brand</label>
-      <input id="brand" formControlName="brand" type="text" />
+      <input id="brand" formControlName="brand" type="text" appHighlightOnFocus="blue" />
     </div>
 
     <!-- Price Field -->
     <div>
       <label for="price">Price</label>
-      <input id="price" formControlName="price" type="number">
+      <input id="price" formControlName="price" type="number" appHighlightOnFocus="blue" />
     </div>
 
     <!-- In Stock Field -->
     <div>
       <label>
-        <input type="checkbox" formControlName="inStock" />
+        <input type="checkbox" formControlName="inStock" appHighlightOnFocus="blue" />
         In Stock
       </label>
     </div>
@@ -36,13 +36,13 @@
     <!-- Description Field -->
     <div>
       <label for="description">Description</label>
-      <textarea id="description" formControlName="description"></textarea>
+      <textarea id="description" formControlName="description" appHighlightOnFocus="blue" ></textarea>
     </div>
 
     <!-- Buttons -->
-    <button type="submit">Save</button>
-    <button type="button" (click)="onDelete()">Delete</button>
-    <button type="button" (click)="navigateToGuitarList()">Back to List</button>
+    <button type="submit" [appHoverHighlight]="'lightgreen'">Save</button>
+    <button type="button" [appHoverHighlight]="'red'" (click)="onDelete()">Delete</button>
+    <button type="button" [appHoverHighlight]="'lightgrey'" (click)="navigateToGuitarList()">Back to List</button>
 
     <div *ngIf="error" class="error">{{ error }}</div>
   </form>
