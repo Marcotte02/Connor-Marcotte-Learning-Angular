@@ -1,5 +1,21 @@
-<div *ngFor="let guitar of guitars">
-  <app-guitars-list-item [guitar]="guitar"></app-guitars-list-item>
-  <button [appHoverHighlight]="'lightgrey'" (click)="editGuitar(guitar.id)">Edit</button>
-  <button [appHoverHighlight]="'red'" (click)="deleteGuitar(guitar.id)">Delete</button>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Guitar Inventory</mat-card-title>
+    <mat-card-subtitle>Look though our inventory!</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div *ngFor="let guitar of guitars" class="guitar-item">
+      <app-guitars-list-item [guitar]="guitar"></app-guitars-list-item>
+      <mat-divider></mat-divider>
+      <div class="action-buttons">
+        <button mat-raised-button="primary" [appHoverHighlight]="'lightgrey'" (click)="editGuitar(guitar.id)">
+          Edit
+        </button>
+        <button mat-raised-button color="warn" [appHoverHighlight]="'lightcoral'" (click)="deleteGuitar(guitar.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

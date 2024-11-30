@@ -6,6 +6,9 @@ import {GUITARS} from "../data/mock-content";
 import {GuitarService} from "../guitar.service";
 import {Router} from "@angular/router";
 import {HoverHighlightDirective} from "../hover-highlight.directive";
+import {MatCardModule} from "@angular/material/card";
+import {MatListModule} from "@angular/material/list";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-guitars-list',
@@ -14,6 +17,9 @@ import {HoverHighlightDirective} from "../hover-highlight.directive";
     GuitarsListItemComponent,
     NgForOf,
     HoverHighlightDirective,
+    MatCardModule,
+    MatListModule,
+    MatButtonModule,
   ],
   templateUrl: './guitars-list.component.html',
   styleUrl: './guitars-list.component.css'

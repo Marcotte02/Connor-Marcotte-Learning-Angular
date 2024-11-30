@@ -5,6 +5,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Guitar} from "../models/guitar";
 import {HighlightOnFocusDirective} from "../highlight-on-focus.directive";
 import {HoverHighlightDirective} from "../hover-highlight.directive";
+import {MatInputModule} from "@angular/material/input";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatButtonModule} from "@angular/material/button";
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 
 @Component({
   selector: 'app-modify-list-item',
@@ -12,10 +16,16 @@ import {HoverHighlightDirective} from "../hover-highlight.directive";
   imports: [
     ReactiveFormsModule,
     HighlightOnFocusDirective,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule
   ],
   templateUrl: './modify-list-item.component.html',
-  styleUrl: './modify-list-item.component.css'
+  styleUrl: './modify-list-item.component.css',
+  providers: [
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline'} }
+  ]
 })
 export class ModifyListItemComponent implements OnInit {
   guitarForm: FormGroup;

@@ -1,9 +1,20 @@
 <div>
-  <h2>{{ guitar.model }}</h2>
-  <img [src]="guitar.imageUrl" alt="{{ guitar.alt }} image" />
-  <p>Brand: {{ guitar.brand | uppercase }}</p>
-  <p>Price: {{ guitar.price | priceWithTax }}</p>
-  <p>Manufactured Date: {{ guitar.manufacturedDate | date: 'longDate' }}</p>
-  <p *ngIf="guitar.description">{{ guitar.description }}</p>
-  <p>Status: {{ guitar.inStock ? 'In Stock' : 'Out of Stock' }}</p>
+  <mat-card class="guitar-item-card">
+    <mat-card-header>
+      <mat-card-title>{{ guitar.model }}</mat-card-title>
+      <mat-card-subtitle>{{ guitar.brand | uppercase }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="guitar.imageUrl" alt="{{ guitar.alt }}" />
+
+    <mat-card-content>
+      <p>Price: {{ guitar.price | priceWithTax }}</p>
+      <p>Manufactured Date: {{ guitar.manufacturedDate | date }}</p>
+      <mat-divider></mat-divider>
+      <p *ngIf="guitar.description">{{ guitar.description }}</p>
+      <p [ngClass]="guitar.inStock ? 'in-stock' : 'out-of-stock'">
+        Status: {{ guitar.inStock ? 'In Stock' : 'Out of Stock' }}
+      </p>
+    </mat-card-content>
+  </mat-card>
 </div>

@@ -2,47 +2,46 @@
   <form [formGroup]="guitarForm" (ngSubmit)="onSubmit()">
 
     <!-- ID Field -->
-    <div>
-      <label for="id">ID</label>
-      <input id="id" formControlName="id" type="number" appHighlightOnFocus="blue" />
-    </div>
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>ID</mat-label>
+      <input matInput id="id" formControlName="id" type="number" appHighlightOnFocus="blue" />
+    </mat-form-field>
 
     <!-- Model Field -->
-    <div>
-      <label for="model">Model</label>
-      <input id="model" formControlName="model" type="text" appHighlightOnFocus="blue" />
-    </div>
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Model</mat-label>
+      <input matInput id="model" formControlName="model" type="text" appHighlightOnFocus="blue" />
+    </mat-form-field>
 
     <!-- Brand Field -->
-    <div>
-      <label for="brand">Brand</label>
-      <input id="brand" formControlName="brand" type="text" appHighlightOnFocus="blue" />
-    </div>
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Brand</mat-label>
+      <input matInput id="brand" formControlName="brand" type="text" appHighlightOnFocus="blue" />
+    </mat-form-field>
 
     <!-- Price Field -->
-    <div>
-      <label for="price">Price</label>
-      <input id="price" formControlName="price" type="number" appHighlightOnFocus="blue" />
-    </div>
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Price</mat-label>
+      <input matInput id="price" formControlName="price" type="number" appHighlightOnFocus="blue" />
+    </mat-form-field>
 
     <!-- In Stock Field -->
-    <div>
-      <label>
-        <input type="checkbox" formControlName="inStock" appHighlightOnFocus="blue" />
-        In Stock
-      </label>
-    </div>
+    <mat-checkbox formControlName="inStock" appHighlightOnFocus="blue">
+      In Stock
+    </mat-checkbox>
 
     <!-- Description Field -->
-    <div>
-      <label for="description">Description</label>
-      <textarea id="description" formControlName="description" appHighlightOnFocus="blue" ></textarea>
-    </div>
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Description</mat-label>
+      <textarea matInput id="description" formControlName="description" appHighlightOnFocus="blue"></textarea>
+    </mat-form-field>
 
     <!-- Buttons -->
-    <button type="submit" [appHoverHighlight]="'lightgreen'">Save</button>
-    <button type="button" [appHoverHighlight]="'red'" (click)="onDelete()">Delete</button>
-    <button type="button" [appHoverHighlight]="'lightgrey'" (click)="navigateToGuitarList()">Back to List</button>
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" type="submit" [appHoverHighlight]="'lightgreen'">Save</button>
+      <button mat-raised-button color="warn" type="button" [appHoverHighlight]="'red'" (click)="onDelete()">Delete</button>
+      <button mat-flat-button color="accent" type="button" [appHoverHighlight]="'lightgrey'" (click)="navigateToGuitarList()">Back to List</button>
+    </div>
 
     <div *ngIf="error" class="error">{{ error }}</div>
   </form>

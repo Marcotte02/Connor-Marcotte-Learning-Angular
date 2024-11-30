@@ -1,17 +1,89 @@
-div:nth-child(odd) {
-  background-color: rgba(0,0,255,0.6);
+mat-card {
+  margin: 1em 0;
+  background-color: #1e2a47;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-div:nth-child(even) {
-  background-color: rgba(0,0,255,0.4);
+mat-card-header {
+  color: white;
+  background-color: #1e2a47;
+  padding: 0.5em;
+}
+
+mat-card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+mat-card-subtitle {
+  font-size: 1.2rem;
+  color: #d3d3d3;
+}
+
+mat-divider {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 1em 0;
+}
+
+.guitar-item {
+  padding: 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+}
+
+.action-buttons {
+  display: flex;
+  margin-top: 1em;
+  justify-content: space-between;
 }
 
 button {
-  background-color: white;
-  color: black;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+button[appHoverHighlight] {
+  transition: background-color 0.3s ease;
+}
+
+button[appHoverHighlight]:hover {
+  background-color: lightgray;
+}
+
+button[appHoverHighlight] {
+  border-radius: 5px;
   border: none;
-  border-radius: 4px;
-  margin: 5px;
-  padding: 10px;
-  font-size: 16px;
+}
+
+button[mat-raised-button][color="primary"] {
+  background-color: #1976d2;
+  color: white;
+}
+
+button[mat-raised-button][color="warn"] {
+  background-color: #d32f2f;
+  color: white;
+}
+
+button[mat-flat-button][color="accent"] {
+  background-color: #ff4081;
+  color: white;
+  font-weight: bold;
+}
+
+button[mat-flat-button][color="accent"]:hover {
+  background-color: #f50057;
+}
+
+.guitar-item img {
+  max-height: 300px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
 }

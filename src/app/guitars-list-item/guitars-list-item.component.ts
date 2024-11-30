@@ -1,7 +1,10 @@
 import {Component, Input, input} from '@angular/core';
 import {Guitar} from "../models/guitar";
-import {CurrencyPipe, DatePipe, NgIf, UpperCasePipe} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgClass, NgIf, UpperCasePipe} from "@angular/common";
 import {PriceWithTaxPipe} from "../pipes/price-with-tax.pipe";
+import {MatCardModule} from "@angular/material/card";
+import {MatListModule} from "@angular/material/list";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-guitars-list-item',
@@ -11,7 +14,11 @@ import {PriceWithTaxPipe} from "../pipes/price-with-tax.pipe";
     DatePipe,
     UpperCasePipe,
     CurrencyPipe,
-    PriceWithTaxPipe
+    PriceWithTaxPipe,
+    MatCardModule,
+    MatListModule,
+    MatButtonModule,
+    NgClass
   ],
   templateUrl: './guitars-list-item.component.html',
   styleUrl: './guitars-list-item.component.css'

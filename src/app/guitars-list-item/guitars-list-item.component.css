@@ -2,37 +2,63 @@
    By: Connor Marcotte
  */
 
-div {
+/* Card Styling */
+.guitar-item-card {
   border: 2px solid #000;
+  font-size: 2em;
+  background-color: rgba(0, 0, 255, 0.5);
   padding: 1em;
   margin: 0.5em 0;
-}
-
-.odd-item {
-  background-color: rgba(0,0,255,0.6);
-}
-
-.even-item {
-  background-color: rgba(0,0,255,0.4);
-}
-
-img {
-  display: block;
-  margin: 0 auto;
-  max-height:400px;
-  max-width: 100%;
-}
-
-h2 {
   color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mat-card-title {
   font-size: 2rem;
-  margin: 0 0 1em;
   text-align: center;
-}
-
-p {
   color: white;
-  font-size: 1.2rem;
-  margin: 0.5em 0;
+  margin-bottom: 1em;
 }
 
+.mat-card-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  color: lightgray;
+}
+
+.mat-card-image {
+  display: block;
+  margin: 1em auto;
+  max-height: 400px;
+  max-width: 100%;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+.mat-card-content p {
+  margin: 0.5em 0;
+  color: white;
+}
+
+.mat-divider {
+  margin: 1em 0;
+  background-color: white;
+}
+
+.in-stock {
+  color: lightgreen;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: lightcoral;
+  font-weight: bold;
+}
+
+.guitar-item-card:nth-child(odd) {
+  background-color: rgba(0, 0, 255, 0.6);
+}
+
+.guitar-item-card:nth-child(even) {
+  background-color: rgba(0, 0, 255, 0.4);
+}

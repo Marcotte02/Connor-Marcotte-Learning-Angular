@@ -5,13 +5,14 @@ import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {GuitarsListComponent} from "./guitars-list/guitars-list.component";
 import {GuitarService} from "./guitar.service";
 import {GuitarsListItemComponent} from "./guitars-list-item/guitars-list-item.component";
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NgIf, NgForOf, GuitarsListComponent, GuitarsListItemComponent, AsyncPipe, RouterLink],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit{
   title: string = 'Guitar Store';
