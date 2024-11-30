@@ -1,16 +1,13 @@
-<html>
-  <body>
-    <nav>
-      <ul>
-        <li><a routerLink = '/guitars'>Home</a></li>
-        <li><a routerLink ='/modify-guitar'>Modify Guitar</a></li>
-      </ul>
-    </nav>
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/guitars" class="nav-button">Home</button>
+  <button mat-button routerLink="/modify-guitar" class="nav-button">Modify Guitar</button>
+  <span class="spacer"></span>
+  <button mat-icon-button>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
 
-    <div>
-      <h1>{{ title }}</h1>
-
-      <router-outlet></router-outlet>
-    </div>
-  </body>
-</html>
+<div>
+  <h1>{{ title }}</h1>
+  <router-outlet></router-outlet>
+</div>

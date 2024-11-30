@@ -1,48 +1,46 @@
+<form [formGroup]="guitarForm" (ngSubmit)="onSubmit()">
 
-  <form [formGroup]="guitarForm" (ngSubmit)="onSubmit()">
+  <!-- ID Field -->
+  <mat-form-field appearance="fill" class="input">
+    <mat-label>ID</mat-label>
+    <input matInput id="id" formControlName="id" type="number" appHighlightOnFocus="blue" matTooltip="Enter the guitar ID" />
+  </mat-form-field>
 
-    <!-- ID Field -->
-    <mat-form-field appearance="fill" class="input">
-      <mat-label>ID</mat-label>
-      <input matInput id="id" formControlName="id" type="number" appHighlightOnFocus="blue" />
-    </mat-form-field>
+  <!-- Model Field -->
+  <mat-form-field appearance="fill" class="input">
+    <mat-label>Model</mat-label>
+    <input matInput id="model" formControlName="model" type="text" appHighlightOnFocus="blue" matTooltip="Enter the model of the guitar" />
+  </mat-form-field>
 
-    <!-- Model Field -->
-    <mat-form-field appearance="fill" class="input">
-      <mat-label>Model</mat-label>
-      <input matInput id="model" formControlName="model" type="text" appHighlightOnFocus="blue" />
-    </mat-form-field>
+  <!-- Brand Field -->
+  <mat-form-field appearance="fill" class="input">
+    <mat-label>Brand</mat-label>
+    <input matInput id="brand" formControlName="brand" type="text" appHighlightOnFocus="blue" matTooltip="Enter the brand of the guitar" />
+  </mat-form-field>
 
-    <!-- Brand Field -->
-    <mat-form-field appearance="fill" class="input">
-      <mat-label>Brand</mat-label>
-      <input matInput id="brand" formControlName="brand" type="text" appHighlightOnFocus="blue" />
-    </mat-form-field>
+  <!-- Price Field -->
+  <mat-form-field appearance="fill" class="input">
+    <mat-label>Price</mat-label>
+    <input matInput id="price" formControlName="price" type="number" appHighlightOnFocus="blue" matTooltip="Enter the price of the guitar" />
+  </mat-form-field>
 
-    <!-- Price Field -->
-    <mat-form-field appearance="fill" class="input">
-      <mat-label>Price</mat-label>
-      <input matInput id="price" formControlName="price" type="number" appHighlightOnFocus="blue" />
-    </mat-form-field>
+  <!-- In Stock Field -->
+  <mat-checkbox formControlName="inStock" appHighlightOnFocus="blue" matTooltip="Check if the guitar is in stock">
+    In Stock
+  </mat-checkbox>
 
-    <!-- In Stock Field -->
-    <mat-checkbox formControlName="inStock" appHighlightOnFocus="blue">
-      In Stock
-    </mat-checkbox>
+  <!-- Description Field -->
+  <mat-form-field appearance="fill" class="input">
+    <mat-label>Description</mat-label>
+    <textarea matInput id="description" formControlName="description" appHighlightOnFocus="blue" matTooltip="Provide a description of the guitar"></textarea>
+  </mat-form-field>
 
-    <!-- Description Field -->
-    <mat-form-field appearance="fill" class="input">
-      <mat-label>Description</mat-label>
-      <textarea matInput id="description" formControlName="description" appHighlightOnFocus="blue"></textarea>
-    </mat-form-field>
+  <!-- Buttons -->
+  <div class="action-buttons">
+    <button mat-raised-button color="primary" type="submit" [appHoverHighlight]="'lightgreen'">Save</button>
+    <button mat-raised-button color="warn" type="button" [appHoverHighlight]="'red'" (click)="onDelete()">Delete</button>
+    <button mat-flat-button color="accent" type="button" [appHoverHighlight]="'lightgrey'" (click)="navigateToGuitarList()">Back to List</button>
+  </div>
 
-    <!-- Buttons -->
-    <div class="action-buttons">
-      <button mat-raised-button color="primary" type="submit" [appHoverHighlight]="'lightgreen'">Save</button>
-      <button mat-raised-button color="warn" type="button" [appHoverHighlight]="'red'" (click)="onDelete()">Delete</button>
-      <button mat-flat-button color="accent" type="button" [appHoverHighlight]="'lightgrey'" (click)="navigateToGuitarList()">Back to List</button>
-    </div>
-
-    <div *ngIf="error" class="error">{{ error }}</div>
-  </form>
-
+  <div *ngIf="error" class="error">{{ error }}</div>
+</form>

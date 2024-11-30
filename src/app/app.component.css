@@ -31,3 +31,21 @@ li {
   padding: 1.5em;
   box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.1);
 }
+
+/* App Navbar Styling */
+mat-toolbar {
+  background-color: #1976d2;
+  color: white;
+}
+
+.nav-button {
+  font-size: 1.1rem;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-icon {
+  color: white;
+}

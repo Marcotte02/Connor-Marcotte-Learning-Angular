@@ -9,6 +9,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatButtonModule} from "@angular/material/button";
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-modify-list-item',
@@ -19,7 +20,8 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from "@angular/material/form-field";
     HoverHighlightDirective,
     MatInputModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css',
